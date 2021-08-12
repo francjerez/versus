@@ -40,7 +40,7 @@ OS | Environment | Compiler
 ------------- | ------------ | -------------
 Windows 7SP1/8.1/10 | Windows 10 SDK (10.0.x.x) | MSVC v14x (VS 201x C++ x64/x86)
 MacOS 11.x | `sudo xcode-select --install` | `sudo xcode-select --install`
-Fedora 3x.x | `sudo dnf install python3-devel` | *Preinstalled*
+Fedora 3x.x | `sudo dnf install python3-devel` | Preinstalled
 Ubuntu 2x.x | `sudo apt-get install python3-dev` | `sudo apt-get install gcc`
 
 >**NOTE** that the required Windows components can be found in the *Desktop development with C++ Workload* included with the *Microsoft Build Tools for Visual Studio 201x* [installer](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools) (or, from any [VS edition](https://visualstudio.microsoft.com/vs/older-downloads/), by selecting *Python native development tools* found in the *Python Development Workload*). Windows 7SP1 users will need to have [Microsoft .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) 4.5 or greater installed (in addition to [this patch](https://stackoverflow.com/questions/58548069/installing-python-3-8-on-windows-7-32bit-with-sp1), for [Python 3.7/3.8](https://www.python.org/downloads/windows/) support) before starting VS.
