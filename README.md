@@ -10,7 +10,7 @@ With [An O(ND) Difference Algorithm and Its Variations](http://www.xmailserver.o
 
 There is a catch, though; in order to overcome the [once impractical] space complexity of the standard [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach found in the original *greedy* design (p. 6, same paper), the aforementioned *divide and conquer* alternative needs to compromise its alignment quality under certain [common circumstances](https://blog.jcoglan.com/2017/09/19/the-patience-diff-algorithm/). 
 
-Visual annoyances aside, the resulting *sliding* side effect can be a real problem for *diff patching* or any other sensitive application (like, for example, the kind of [project]() Versus was designed to be part of in the first place). 
+Visual annoyances aside, the resulting *sliding* side effect can be a real problem for *diff patching* or any other sensitive application (like, for example, the kind of [~project~]() Versus was designed to be part of in the first place). 
 
 Up to a point, the issue can still be mitigated with strategies like Bram Cohen's [Patience](https://stackoverflow.com/questions/4045017/what-is-git-diff-patience-for) *preprocessor*. Unfortunately, the underlying trade-off, inherent to the D&C variation, is not going anywhere; it's difficult to enjoy a fully deterministic LCS/SES output and overcome the traditional DP's efficiency barrier at the same time.
 
@@ -26,7 +26,7 @@ This, in addition to some [delta encoding](https://en.wikipedia.org/wiki/Delta_e
 
 Below you can find how *Versus* behaves at runtime when comparing up to one million objects (*lines of code*, in this case). Even though the data points have been rounded for readability purposes, the measurements are pretty close to what you can expect for a modern mid-range desktop machine (like, for example, the [Geekbench 5] [850/SC](https://browser.geekbench.com/processors/intel-core-i7-4870hq) I used).
 
-A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 milliseconds if your code reaches the [2000 LOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) barrier without a single match on the opposite side.
+A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 ms if your code reaches the [2000 LOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) barrier without a single match on the opposite side.
 
 ![Performance](https://user-images.githubusercontent.com/3150023/129176398-0595db5a-ad28-4fe9-83dc-9290857dbda5.png)
 
