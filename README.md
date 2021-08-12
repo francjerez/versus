@@ -20,7 +20,7 @@ Yet another option would be to combine Myers's first bid with a couple of well-k
 
 This, in addition to some [delta encoding](https://en.wikipedia.org/wiki/Delta_encoding) to further reduce the space complexity, is exactly what *Versus* does. 
 
->**NOTE** that, even when you could get even better results with [edlib](https://github.com/Martinsos/edlib) or a similar bit-vector based [implementation](http://www.gersteinlab.org/courses/452/09-spring/pdf/Myers.pdf) (a *Myers's 2.0* of sorts, still DP & about 10x faster; per core), the alphabet size would be limited to 128 unique symbols (far below the number of unique lines your code can have) and reusability would be severily hindered for any full-fledged library intended to be built on top of it (*Versus*, in this regard, is dead simple and portable).
+>**NOTE** that, even when you could get even better results with [edlib](https://github.com/Martinsos/edlib) or a similar bit-vector based [implementation](http://www.gersteinlab.org/courses/452/09-spring/pdf/Myers.pdf) (a *Myers's 2.0* of sorts, still DP & about 10x faster; per core), the alphabet size would be limited to 128 unique symbols (far below the amount of unique lines your code can have) and reusability would be severily hindered for any full-fledged library intended to be built on top of it (*Versus*, in this regard, is dead simple and portable).
 
 ## Performance
 
