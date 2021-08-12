@@ -30,7 +30,7 @@ A *lag line* is drawn in order to let you know when you might start to experienc
 
 ![Performance](https://user-images.githubusercontent.com/3150023/129229963-27a15870-21d2-4a94-ae79-756fcdc59099.png)
 
->**NOTE** that even though *Versus*'s space complexity looks almost linear when working with VCS, in extreme circumstances (e.g., countless alignments with no room for delta compression [b/c of fragmentation, as in `ABCABC...` vs `CBACBA...`]), the program could take up to 64 GB of virtual memory. Beyond that limit (as you can read in the *Error handling* section [below](#error-handling)), the LCS/SES is just an estimate.
+>**NOTE** that even though *Versus*'s space complexity is almost linear when working with VCS, in extreme circumstances (e.g., countless alignments with no room for delta compression [b/c of fragmentation, as in `ABCABC...` vs `CBACBA...`]), the program could take up to 64 GB of virtual memory. Beyond that limit (as you can read in the *Error handling* section [below](#error-handling)), the LCS/SES is just an estimate.
 
 ## Installation
 
