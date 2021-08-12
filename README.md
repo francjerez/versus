@@ -67,7 +67,7 @@ print(versus.ses(['t', 'o'], ['a', 't']))
 
 ## Use
 
-In its current form, Versus is designed to be compact and reusable, without any kind of extended functionality built on top of it. As a result, none of the two LCS/SES outputs are human-readable at first glance.
+In its current form, *Versus* is designed to be compact and reusable, without any kind of extended functionality built on top of it. As a result, none of the two LCS/SES outputs are human-readable at first glance.
 
 Having said that, you can learn everything you need from the following example:
 
