@@ -10,7 +10,7 @@ With [An O(ND) Difference Algorithm and Its Variations](http://www.xmailserver.o
 
 There is a catch, though; in order to overcome the [once impractical] space complexity of the standard [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach found in the original *greedy* design (p. 6, same paper), the aforementioned *divide and conquer* alternative needs to compromise its alignment quality under certain [common circumstances](https://blog.jcoglan.com/2017/09/19/the-patience-diff-algorithm/). 
 
-Visual annoyances aside, the resulting *sliding* side effect can be a real problem for *diff patching* or any other sensitive application (like, for example, the kind of [~project~]() Versus was designed to be part of in the first place). 
+Visual annoyances aside, the resulting *sliding* side effect can be a real problem for *diff patching* or any other sensitive application (like, for example, the kind of [~project~]() *Versus* was designed to be part of in the first place). 
 
 Up to a point, the issue can still be mitigated with strategies like Bram Cohen's [Patience](https://stackoverflow.com/questions/4045017/what-is-git-diff-patience-for) *preprocessor*. Unfortunately, the underlying trade-off, inherent to the D&C variation, is not going anywhere; it's difficult to enjoy a fully deterministic LCS/SES output and overcome the traditional DP's efficiency barrier at the same time.
 
@@ -38,7 +38,7 @@ First, let's make sure the platform is ready; here are the components your syste
 
 OS | Environment | Compiler 
 ------------- | ------------ | -------------
-Windows 7SP1&/8.1/10 | Windows 10 SDK (10.0.x.x) | MSVC v14x (VS 201x C++ x64/x86)
+Windows 7SP1/8.1/10 | Windows 10 SDK (10.0.x.x) | MSVC v14x (VS 201x C++ x64/x86)
 MacOS 11.x | `sudo xcode-select --install` | `sudo xcode-select --install`
 Fedora 3x.x | `sudo dnf install python3-devel` | *Preinstalled*
 Ubuntu 2x.x | `sudo apt-get install python3-dev` | `sudo apt-get install gcc`
@@ -62,7 +62,7 @@ We are done; let's test the code with something simple:
 ```
 import versus
 print(versus.lcs(['t', 'o'], ['a', 't']))
-print(versus.ses(['t', 'o'], [a', 't']))
+print(versus.ses(['t', 'o'], ['a', 't']))
 ```
 
 ## Use
