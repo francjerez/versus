@@ -16,7 +16,7 @@ Up to a point, the issue can still be mitigated with strategies like Bram Cohen'
 
 Yet another option would be to combine Myers's first bid with a couple of well-known DPA optimizations, such as: 
 * [Ukkonen's k-band](https://www.sciencedirect.com/science/article/pii/S0019995885800462/pdf), for a dynamically bounded search space (as Robert Elder explains very well [here](https://blog.robertelder.org/diff-algorithm/)).
-* [Hunt's k-candidates](https://www.cs.dartmouth.edu/~doug/diff.pdf), for a better vector storage management (as Tony Garnock-Jones does [here](https://gist.github.com/tonyg/2361e3bfe4e92a1fc6f7)).
+* [Hunt's k-candidates](https://www.cs.dartmouth.edu/~doug/diff.pdf), for a better vector storage (as Tony Garnock-Jones does [here](https://gist.github.com/tonyg/2361e3bfe4e92a1fc6f7), following [UL's work](http://www.squeaksource.com/DiffMerge/))(https://gist.github.com/tonyg/2361e3bfe4e92a1fc6f7)).
 
 This, in addition to some [delta encoding](https://en.wikipedia.org/wiki/Delta_encoding) to further reduce the space complexity, is exactly what *Versus* does. 
 
