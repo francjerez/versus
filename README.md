@@ -27,6 +27,7 @@ This, in addition to some [delta encoding](https://en.wikipedia.org/wiki/Delta_e
 Below you can find how *Versus* behaves at runtime when comparing up to one million objects (*lines of code*, in this case). Even though the data points have been rounded for readability purposes, the measurements are pretty close to what you can expect for a modern mid-range desktop machine (like, for example, the [Geekbench 5] [850/SC](https://browser.geekbench.com/processors/intel-core-i7-4870hq) I used).
 
 A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 milliseconds if your code reaches the [2000 LOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) barrier without a single match on the opposite side.
+
 ![Performance](https://user-images.githubusercontent.com/3150023/129176398-0595db5a-ad28-4fe9-83dc-9290857dbda5.png)
 
 >**NOTE** that even though DP's [worst case scenario] quadratic space complexity is usually not critical when working with VCS, in extreme circumstances (like the *half-a-million-of-unmatchable-lines-of-code* one), *Versus* could take up to 64 GB of virtual memory. Beyond that limit (as you can read in the *Error handling* section [below](#error-handling)), the LCS/SES is just an estimate.
