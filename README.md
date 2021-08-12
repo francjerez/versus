@@ -83,6 +83,6 @@ Another `bad input size` exception will be thrown if either of the two input seq
 
 Finally, in order to be able to dynamically allocate enough space for the main algorithm, a preliminary memory check is carried out. If your addressable VM turns out to be insufficient, one last `lack of memory` exception will follow.
 
-As for warnings, a `too many edges` message could be written to `stdout` just before the output is printed. This is a fallback mechanism for those fringe cases where the number of matching edges reach the `UINT_MAX` limit (yep, as the inputs). When that happens, *Versus* stops looking for the LCS/SES, and the best available alternative is backtraced instead.
+As for warnings, a `too many edges` message could be written to `stdout` just before the output is printed. This is a fallback mechanism for those fringe cases where the number of matching edges reach the `UINT_MAX` limit (yep, as the inputs). When that happens, *Versus* stops looking for the LCS/SES, and the best available alternative is backtracked instead.
 
 >**NOTE** that the *good enough* contingency logic from above is very similar to the [usually enabled by default] *non-minimal* heuristic speed-up you can find in most Myers's D&C implementatiions.
