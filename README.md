@@ -1,6 +1,6 @@
 # Versus
 
-*Versus* is a bare minimum yet powerful *CPython Extension module*, intended to ensure both perfect accuracy and reasonable performance while solving the [Longest Common Subsequence](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) problem. 
+*Versus* is a bare minimum yet powerful *CPython Extension* module, intended to ensure both perfect accuracy and reasonable performance while solving the [Longest Common Subsequence](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem) problem. 
 
 The provided implementation is particularly well suited for the comparison of incremental changes on version control systems, although you can tackle a number of [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics) and [computational linguistics](https://en.wikipedia.org/wiki/Computational_linguistics) use cases with it too.
 
