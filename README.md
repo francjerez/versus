@@ -26,7 +26,7 @@ This, in addition to some [delta encoding](https://en.wikipedia.org/wiki/Delta_e
 
 Below you can find how *Versus* behaves at runtime when comparing up to one million objects (*lines of code*, in this case). Even though the data points have been rounded for readability purposes, the measurements are pretty close to what you can expect for a modern mid-range desktop machine (e.g. the [Geekbench 5] [850/SC](https://browser.geekbench.com/processors/intel-core-i7-4870hq) I used).
 
-A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 ms if your code reaches the [2000 LOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) threshold without a single match on the opposite side.
+A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 ms if your code reaches the [3000 SLOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) threshold without a single match on the opposite side.
 
 ![Performance](https://user-images.githubusercontent.com/3150023/129197813-7cd5c22d-33d8-410c-a3f7-c5a45f672024.png)
 
