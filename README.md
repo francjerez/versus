@@ -39,7 +39,7 @@ First, let's make sure the platform is ready; here are the components your syste
 OS | Environment | Compiler 
 ------------- | ------------ | -------------
 Windows 7SP1/8.1/10 | Windows 10 SDK (10.0.x.x) | MSVC v14x (VS 201x C++ x64/x86)
-MacOS 11.x | `sudo xcode-select --install` 
+MacOS 11.x | `sudo xcode-select --install` | Part of the [Command Line Tools](https://stackoverflow.com/questions/9329243/how-to-install-xcode-command-line-tools) package
 Fedora 3x.x | `sudo dnf install python3-devel` | Preinstalled
 Ubuntu 2x.x | `sudo apt-get install python3-dev` | `sudo apt-get install gcc`
 
