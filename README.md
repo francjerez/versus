@@ -10,17 +10,17 @@ With [An O(ND) Difference Algorithm and Its Variations](http://www.xmailserver.o
 
 There is a catch, though; in order to overcome the [once impractical] space complexity of the standard [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach found in the original *greedy* design (p. 6, same paper), the aforementioned *divide and conquer* alternative needs to compromise its alignment quality under certain [common circumstances](https://blog.jcoglan.com/2017/09/19/the-patience-diff-algorithm/). 
 
-Visual annoyances aside, the resulting *sliding* side effect can be a real problem for *diff patching* or any other sensitive application (like, for example, the kind of [project](#) Versus was designed to be part of in the first place). 
+Visual annoyances aside, the resulting *sliding* side effect can be a real problem for *diff patching* or any other sensitive application (like, for example, the kind of [project]() Versus was designed to be part of in the first place). 
 
 Up to a point, the issue can still be mitigated with strategies like Bram Cohen's [Patience](https://stackoverflow.com/questions/4045017/what-is-git-diff-patience-for) *preprocessor*. Unfortunately, the underlying trade-off, inherent to the D&C variation, is not going anywhere; it's difficult to enjoy a fully deterministic LCS/SES output and overcome the traditional DP's efficiency barrier at the same time.
 
 Yet another option would be to combine Myers's first bid with a couple of well-known DPA optimizations, such as: 
-* [Ukkonen's k-band](https://www.sciencedirect.com/science/article/pii/S0019995885800462/pdf), for a dynamically bounded search space (as Robert Elder explains very well in his [interactive viz](https://blog.robertelder.org/diff-algorithm/)).
-* [Hunt's k-candidates](https://www.cs.dartmouth.edu/~doug/diff.pdf), for a better vector storage management (as Tony Garnock-Jones does [here](https://gist.github.com/tonyg/2361e3bfe4e92a1fc6f7), following [UL's work](http://www.squeaksource.com/DiffMerge/)).
+* [Ukkonen's k-band](https://www.sciencedirect.com/science/article/pii/S0019995885800462/pdf), for a dynamically bounded search space (as Robert Elder explains very well [here](https://blog.robertelder.org/diff-algorithm/)).
+* [Hunt's k-candidates](https://www.cs.dartmouth.edu/~doug/diff.pdf), for a better vector storage management (as Tony Garnock-Jones does [here](https://gist.github.com/tonyg/2361e3bfe4e92a1fc6f7)).
 
 This, in addition to some [delta encoding](https://en.wikipedia.org/wiki/Delta_encoding) to further reduce the space complexity, is exactly what *Versus* does. 
 
->**NOTE** that, even when you could get even better results with [edlib](https://github.com/Martinsos/edlib) or a similar [bit-vector based](http://www.gersteinlab.org/courses/452/09-spring/pdf/Myers.pdf) implementation (a *Myers's 2.0* of sorts, still DP & about 10x faster; per core), the alphabet size would be limited to 128 unique symbols (far below the thousands of unique lines your code can have) and reusability would be severily hindered for any full-fledged library intended to be built on top of it (*Versus*, in this regard, is dead simple and portable).
+>**NOTE** that, even when you could get even better results with [edlib](https://github.com/Martinsos/edlib) or a similar bit-vector based [implementation](http://www.gersteinlab.org/courses/452/09-spring/pdf/Myers.pdf) (a *Myers's 2.0* of sorts, still DP & about 10x faster; per core), the alphabet size would be limited to 128 unique symbols (far below the thousands of unique lines your code can have) and reusability would be severily hindered for any full-fledged library intended to be built on top of it (*Versus*, in this regard, is dead simple and portable).
 
 ## Performance
 
@@ -45,21 +45,25 @@ Ubuntu 2x.x | `sudo apt-get install python3-dev` | `sudo apt-get install gcc`
 
 >**NOTE** that the required Windows components can be found in the *Desktop development with C++ Workload* included with the *Microsoft Build Tools for Visual Studio 201x* [installer](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools) (or, from any [VS edition](https://visualstudio.microsoft.com/vs/older-downloads/), by selecting *Python native development tools* found in the *Python Development Workload*). Windows 7SP1 users will need to have [Microsoft .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) 4.5 or greater installed (in addition to [this patch](https://stackoverflow.com/questions/58548069/installing-python-3-8-on-windows-7-32bit-with-sp1), for [Python 3.7/3.8](https://www.python.org/downloads/windows/) support) before starting VS.
 
-Now we can compile [versus.c] into the binary module that our Python 3.6+ scripts will be able to load later:
+Now we can compile `versus.c` into the binary module that our **Python 3.6+** scripts will be able to load later:
 
-`python3 setup.py build`
+```
+python3 setup.py build
+```
 
-In order to install the module, just move the `/build/foo/versus.os.so|pyc` binary just created (tip: make it version-agnostic by renaming the file to `versus.so|pyd`) into your registered `site-packages` path of choice; as per:
+In order to install the module, just move the `/build/foo/versus.os.so|pyc` binary just created (tip: make it version-agnostic by renaming the file to `versus.so|pyd`) into your registered `site-packages` path of choice; as per:
 
-`python3 -m site`
+```
+python3 -m site
+```
 
 We are done; let's test the code with something simple:
 
-'''
+```
 import versus
 print(versus.lcs(["t", "o"], ["a", "t"]))
 print(versus.ses(["t", "o"], ["a", "t"]))
-'''
+```
 
 ## Use
 
@@ -75,10 +79,10 @@ Having said that, you can learn everything you need from the following example:
 
 *Versus* is able to compare just about any kind of built-in Python object against each other (nested structures included), provided that they are fed into the module as a couple of lists. Otherwise, the program will exit with a `bad input type` exception. 
 
-You will get a `bad input size` exception too if either of the two input sequences exceeds `4294967295` items in size, or is empty.
+Another `bad input size` exception will be thrown if either of the two input sequences exceeds `4294967295` items in size, or is empty.
 
-Finally, in order to be able to dynamically allocate enough space for the main algorithm, a preliminary memory check is carried out. If your addressable VM turns out to be insufficient, a `lack of memory` exception will follow.
+Finally, in order to be able to dynamically allocate enough space for the main algorithm, a preliminary memory check is carried out. If your addressable VM turns out to be insufficient, one last `lack of memory` exception will follow.
 
-As for warnings, a `too many edges` message could be written to `stdout` just before the output is printed. This is a fallback mechanism for those fringe cases where the number of matching edges reach the `UINT_MAX` limit (as the inputs). When that happens, *Versus* stops looking for the LCS/SES, and the best available alternative is backtraced instead.
+As for warnings, a `too many edges` message could be written to `stdout` just before the output is printed. This is a fallback mechanism for those fringe cases where the number of matching edges reach the `UINT_MAX` limit (yep, as the inputs). When that happens, *Versus* stops looking for the LCS/SES, and the best available alternative is backtraced instead.
 
 >**NOTE** that the *good enough* contingency logic from above is very similar to the [usually enabled by default] *non-minimal* heuristic speed-up you can find in most Myers's D&C implementatiions.
