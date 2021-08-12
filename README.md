@@ -75,7 +75,7 @@ Having said that, you can learn everything you need from the following example:
 
 >**NOTE** that the *Shortest Edit Script* contains only two types of commands; `-1` *deletions* from file A and `1` *insertions* into file B. In order to support *substitutions*, while keeping the algorithm's expected behaviour intact, *Versus* renames the operation type flag `-1` as `0` whenever a deletion is known to be followed by an overlapping insertion, so downstream code can easily tell (or ignore) the difference. 
 
-# Error handling
+## Error handling
 
 *Versus* is able to compare just about any kind of built-in Python object against each other (nested structures included), provided that they are fed into the module as a couple of lists. Otherwise, the program will exit with a `bad input type` exception. 
 
