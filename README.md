@@ -51,7 +51,7 @@ Now we can compile `versus.c` into the binary module that our **Python 3.6+** sc
 python3 setup.py build
 ```
 
-In order to install the module, just move the `/build/foo/versus.os.so|pyc` binary just created (tip: make it version-agnostic by renaming the file to `versus.so|pyd`) into your registered `site-packages` path of choice; as per:
+In order to install the module, just move the `/build/foo/versus.os.so|pyc` binary just created (make it version-agnostic by renaming the file to `versus.so|pyd`) into your registered `site-packages` path of choice; as per:
 
 ```
 python3 -m site
@@ -61,8 +61,8 @@ We are done; let's test the code with something simple:
 
 ```
 import versus
-print(versus.lcs(["t", "o"], ["a", "t"]))
-print(versus.ses(["t", "o"], ["a", "t"]))
+print(versus.lcs(['t', 'o'], ['a', 't']))
+print(versus.ses(['t', 'o'], [a', 't']))
 ```
 
 ## Use
