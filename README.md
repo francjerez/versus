@@ -28,7 +28,7 @@ Below you can find how *Versus* behaves at runtime when comparing up to one mill
 
 A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 ms if your code reaches the [2000 LOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) threshold without a single match on the opposite side.
 
-![Performance](https://user-images.githubusercontent.com/3150023/129197413-08ef3233-2f59-40a5-8a0d-0e85951c888b.png)
+![Performance](https://user-images.githubusercontent.com/3150023/129197813-7cd5c22d-33d8-410c-a3f7-c5a45f672024.png)
 
 >**NOTE** that even though DP's [worst case scenario] quadratic space complexity is usually not critical when working with VCS, in extreme circumstances (like the *half-a-million-of-unmatchable-lines-of-code* one), *Versus* could take up to 64 GB of virtual memory. Beyond that limit (as you can read in the *Error handling* section [below](#error-handling)), the LCS/SES is just an estimate.
 
@@ -71,7 +71,7 @@ In its current form, Versus is designed to be compact and reusable, without any 
 
 Having said that, you can learn everything you need from the following example:
 
-![Use](https://user-images.githubusercontent.com/3150023/129197458-23030a10-1d8d-4440-b188-d46c997ed573.png)
+![Use](https://user-images.githubusercontent.com/3150023/129197852-b81c9275-47c5-42c0-888a-14a00639f78b.png)
 
 >**NOTE** that the *Shortest Edit Script* contains only two types of commands; `-1` *deletions* from file A and `1` *insertions* into file B. In order to support *substitutions*, while keeping the algorithm's expected behaviour intact, *Versus* renames the operation type flag `-1` as `0` whenever a deletion is known to be followed by an overlapping insertion, so downstream code can easily tell (or ignore) the difference. 
 
