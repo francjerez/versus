@@ -81,7 +81,7 @@ Having said that, you can learn everything you need from the following example:
 
 Another `bad input size` exception will be thrown if either of the two input sequences exceeds `4294967295` items in size, or is empty.
 
-Finally, in order to be able to dynamically allocate enough space for the main algorithm, a preliminary memory check is carried out. If your addressable heap turns out to be insufficient, one last `lack of memory` exception will follow.
+Finally, in order to be able to dynamically allocate enough space for the main algorithm, a preliminary memory check is carried out. If your addressable virtual memory turns out to be insufficient, one last `lack of memory` exception will follow.
 
 As for warnings, a `too many edges` message could be written to `stdout` just before the output is printed. This is a fallback mechanism for those fringe cases where the number of matching edges reach the `UINT_MAX` limit (yep, as the inputs). When that happens, *Versus* stops looking for the LCS/SES, and the best available alternative is backtracked instead.
 
