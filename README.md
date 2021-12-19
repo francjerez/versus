@@ -28,7 +28,7 @@ Below you can find how *Versus* behaves at runtime when comparing up to one mill
 
 A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 ms if your code reaches the [3000 SLOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) threshold without a single match on the opposite side.
 
-![Performance](https://user-images.githubusercontent.com/3150023/146686982-e2369925-d95a-4f46-ab28-5848c8aecea5.png)
+![Performance](https://user-images.githubusercontent.com/3150023/146687101-30bfa2cf-ea77-47bf-b52f-1213e178dd84.png)
 
 >**NOTE** that even though *Versus*'s space complexity is almost linear when managing code changes, in extreme circumstances (e.g., countless alignments with no room for delta compression [b/c of fragmentation, as in `ABCABC...` vs `CBACBA...`]), the program could take up to 64 GB of virtual memory. Beyond that limit (as you can read in the *Error handling* section [below](#error-handling)), the LCS/SES is just an estimate.
 
@@ -71,7 +71,7 @@ In its current form, *Versus* is designed to be compact and reusable, without an
 
 Having said that, you can learn everything you need from the following example:
 
-![Use](https://user-images.githubusercontent.com/3150023/146687005-86754b73-7548-43a4-8be2-5eaecbed7cf6.png)
+![Use](https://user-images.githubusercontent.com/3150023/146687083-8b7ca9fd-0241-4c96-8713-ae8d996d037c.png)
 
 >**NOTE** that the *Shortest Edit Script* contains only two types of commands; `-1` *deletions* from file A and `1` *insertions* into file B. In order to support *substitutions*, while keeping the algorithm's expected behaviour intact, *Versus* renames the operation type flag `-1` as `0` whenever a deletion is known to be followed by an overlapping insertion, so downstream code can easily tell (or ignore) the difference. 
 
