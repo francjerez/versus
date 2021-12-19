@@ -71,7 +71,7 @@ In its current form, *Versus* is designed to be compact and reusable, without an
 
 Having said that, you can learn everything you need from the following example:
 
-![Use](https://user-images.githubusercontent.com/3150023/146687083-8b7ca9fd-0241-4c96-8713-ae8d996d037c.png)
+![Use](https://user-images.githubusercontent.com/3150023/146687626-c9ce41d7-693e-40f1-85c3-01524847aa13.png)
 
 >**NOTE** that the *Shortest Edit Script* contains only two types of commands; `-1` *deletions* from file A and `1` *insertions* into file B. In order to support *substitutions*, while keeping the algorithm's expected behaviour intact, *Versus* renames the operation type flag `-1` as `0` whenever a deletion is known to be followed by an overlapping insertion, so downstream code can easily tell (or ignore) the difference. 
 
