@@ -28,7 +28,7 @@ Below you can find how *Versus* behaves at runtime when comparing up to one mill
 
 A *lag line* is drawn in order to let you know when you might start to experience some delay. This will not ever happen while working on an incremental basis (this is what *Versus* has been specifically created for), but you will need to wait for about 100 ms if your code reaches the [3000 SLOC](https://softwareengineering.stackexchange.com/questions/176999/at-what-point-range-is-a-code-file-too-big) threshold without a single match on the opposite side.
 
-![Performance](https://user-images.githubusercontent.com/3150023/129229963-27a15870-21d2-4a94-ae79-756fcdc59099.png)
+![Performance](https://user-images.githubusercontent.com/3150023/146686743-0b94e0cc-7bab-416c-b8f0-f46323dcfadc.png)
 
 >**NOTE** that even though *Versus*'s space complexity is almost linear when managing code changes, in extreme circumstances (e.g., countless alignments with no room for delta compression [b/c of fragmentation, as in `ABCABC...` vs `CBACBA...`]), the program could take up to 64 GB of virtual memory. Beyond that limit (as you can read in the *Error handling* section [below](#error-handling)), the LCS/SES is just an estimate.
 
